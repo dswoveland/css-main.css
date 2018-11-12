@@ -1,0 +1,39 @@
+#Adventure Game David_Swoveland
+print("last night, you went to sleep in your own home.")
+print("Now, you wake up in a locked room.")
+print("Could there be a magic key hidden somewhere?")
+print("In the room, you can see:")
+def menu(list, question):
+    for item in list:
+        print(1 + list.index(item), item)
+    return int(input(question))
+#this is a list of the items in the room
+items = ["backpack","painting","vase","bowl","door","magic carriage"]
+import random
+keylocation = random.randint(1,4)
+#the key is not found:
+keyfound = "No"
+loop = 1
+#Dispaly the menu until the key is found
+while loop == 1:
+    choice = menu(items,"what do you want to insepct? ")
+    print("")
+    if choice < 5:
+        if choice == keylocation:
+            print("You found a small magic key in the", items[choice -1])
+            keyfound = "Yes"
+        else:
+            print("You found nothing in the", items[choice -1])
+    elif choice == 5:
+        if keyfound == "Yes":
+            loop = 0
+            print("you read the wizards manuel, ancient knowledge of magic fills your mind.")
+        else:
+            print("The door is locked.  You need to find some way to break it.")
+    else:
+        print("Choose a number less than 6.")
+print("You blast the door down with a powerful destruction spell. You better run, the room is now in flames.")
+
+        
+            
+
